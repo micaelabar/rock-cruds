@@ -12,3 +12,12 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+model Rock {
+  id            Int       @id @default(autoincrement())
+  name          String     @unique
+  description   String?
+  lastSee       String
+  countlastSee  Int        @default(1)
+  extinct       Boolean    @default(false)
+  createdAt     DateTime   @default(now())
+}
